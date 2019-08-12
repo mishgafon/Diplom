@@ -19,29 +19,29 @@ window.addEventListener('DOMContentLoaded', function(){
 
 
 //send-ajax-form
-const sendForm = () => {
-    const errorMessage = 'Что-то пошло не так...',
-        loadMessage = 'Загрузка...',
-        successMesage = 'Спасибо! Мы скоро с вами свяжемся!';
+    const sendForm = () => {
+        const errorMessage = 'Что-то пошло не так...',
+            loadMessage = 'Загрузка...',
+             successMesage = 'Спасибо! Мы скоро с вами свяжемся!';
 
-    const form = document.querySelectorAll('form');
+        const form = document.querySelectorAll('form');
         
-    const statusMessage = document.createElement('div');
-        statusMessage.style.cssText = 'font-size: 2rem;';
+         const statusMessage = document.createElement('div');
+            statusMessage.style.cssText = 'font-size: 2rem;';
         
-    form.forEach((item) => {
+        form.forEach((item) => {
 
         
-    item.addEventListener('submit', (event) => {
-        event.preventDefault();
-        item.appendChild(statusMessage);
-        statusMessage.textContent = loadMessage;
+        item.addEventListener('submit', (event) => {
+            event.preventDefault();
+            item.appendChild(statusMessage);
+            statusMessage.textContent = loadMessage;
         
         const formData = new FormData(item);
         
         let body = {};
-        formData.forEach((val, key) => {
-            body[key] = val;
+            formData.forEach((val, key) => {
+                body[key] = val;
         });	
         
         let formQuestion = document.querySelector('input[name ="user_quest"]');
@@ -125,6 +125,76 @@ const togglePopUp = () =>{
     };    
 };
 togglePopUp();
+
+
+
+
+
+
+
+
+//табы
+    const tabs = () => {
+        const accordionTwo = document.getElementById('accordion-two'),
+            panelHeading = document.querySelectorAll('.panel-heading'),
+            panelCollapse = document.querySelectorAll('.panel-collapse');
+
+        const togglePanelCollapse = (index) => {
+            for(let i = 0; i < panelCollapse.length; i++){
+                if(index === i){
+                    panelCollapse[i].style.display = 'block';
+                } else {
+                    panelCollapse[i].style.display = 'none';
+                }
+            }
+        };
+
+
+        accordionTwo.addEventListener('click', (event) => {
+            let target = event.target;
+                target = target.closest('.panel-heading');
+    
+            if(target){
+                panelHeading.forEach((item, i) => {
+                    if(item === target){
+                        togglePanelCollapse(i);
+                    }
+                });
+            }
+        });
+    };
+    tabs();
+
+
+// конструктор
+    const constr = () => {
+        const construct = document.querySelector('.constructor'),
+                panelHeading = construct.querySelectorAll('.panel-heading'),
+                panelCollapse = construct.querySelectorAll('.panel-collapse'),
+                constructBtn = construct.querySelectorAll('.construct-btn')
+                
+                for (let i = 0; i < panelHeading.length; i++){
+                    
+                    panelHeading[i].addEventListener('click', () => {
+                        panelCollapse.forEach((item) => {
+                            item.classList.remove('in');                                
+                        });
+                        panelCollapse[i].classList.add('in');
+                    });
+                    constructBtn[i].addEventListener('click', () => {
+                        panelCollapse.forEach((item) => {
+                            item.classList.remove('in');                                
+                        });
+                        panelCollapse[i+1].classList.add('in');
+                    });
+                    
+
+
+                }
+
+    };
+    constr();
+
 
 
 
