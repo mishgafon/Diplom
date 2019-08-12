@@ -22,13 +22,18 @@ window.addEventListener('DOMContentLoaded', function(){
     const sendForm = () => {
         const errorMessage = 'Что-то пошло не так...',
             loadMessage = 'Загрузка...',
-             successMesage = 'Спасибо! Мы скоро с вами свяжемся!';
+             successMesage = 'Спасибо! Мы скоро с вами свяжемся!',
+             phoneUser = document.querySelectorAll('.phone-user');
 
         const form = document.querySelectorAll('form');
         
          const statusMessage = document.createElement('div');
             statusMessage.style.cssText = 'font-size: 2rem;';
         
+            phoneUser.addEventListener('input', () => {
+                phoneUser.value = phoneUser.value.replace(/\D/g, '');
+            });
+
         form.forEach((item) => {
 
         
