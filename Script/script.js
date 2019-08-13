@@ -23,16 +23,16 @@ window.addEventListener('DOMContentLoaded', function(){
         const errorMessage = 'Что-то пошло не так...',
             loadMessage = 'Загрузка...',
              successMesage = 'Спасибо! Мы скоро с вами свяжемся!',
-             phoneUser = document.querySelectorAll('.phone-user');
+             phoneUser = document.querySelector('.phone-user');
 
         const form = document.querySelectorAll('form');
         
          const statusMessage = document.createElement('div');
             statusMessage.style.cssText = 'font-size: 2rem;';
         
-            phoneUser.addEventListener('input', () => {
-                phoneUser.value = phoneUser.value.replace(/\D/g, '');
-            });
+             phoneUser.addEventListener('input', () => {
+                 phoneUser.value = phoneUser.value.replace(/\D/g, '');
+             });
 
         form.forEach((item) => {
 
@@ -88,9 +88,15 @@ sendForm();
 //popUp
 const togglePopUp = () =>{
     let body = document.querySelector('body');
+
+   
+     
+
         
     body.addEventListener('click', (event) => {
         let target = event.target;
+
+
 
         if (target.classList.contains('call-btn')){
                 openPopup('.popup-call');
@@ -141,8 +147,8 @@ togglePopUp();
 //табы
     const tabs = () => {
         const accordionTwo = document.getElementById('accordion-two'),
-            panelHeading = document.querySelectorAll('.panel-heading'),
-            panelCollapse = document.querySelectorAll('.panel-collapse');
+            panelHeading = accordionTwo.querySelectorAll('.panel-heading'),
+            panelCollapse = accordionTwo.querySelectorAll('.panel-collapse');
 
         const togglePanelCollapse = (index) => {
             for(let i = 0; i < panelCollapse.length; i++){
