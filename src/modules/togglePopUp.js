@@ -15,12 +15,16 @@ const togglePopUp = () =>{
 
                     } else if (target.classList.contains('consultation-btn')){
                             openPopup('.popup-consultation');
-
+                        
+                        } else if (target.classList.contains('send-calc-form')){
+                            openPopup('.popup-discount2');
+                            
                         } else if (target.classList.contains('popup-close')
                         || target.classList.contains('popup-call')
                         || target.classList.contains('popup-check')
                         || target.classList.contains('popup-consultation')
-                        || target.classList.contains('popup-discount')) {
+                        || target.classList.contains('popup-discount')
+                        || target.classList.contains('popup-discount2')){
                             closePopup();
                         };   
     });

@@ -19,10 +19,13 @@ const constr = () => {
                     panelCollapse[i].classList.add('in');
                 });
                 constructBtn[i].addEventListener('click', () => {
-                    panelCollapse.forEach((item) => {
-                        item.classList.remove('in');                                
-                    });
-                    panelCollapse[i+1].classList.add('in');
+                    if(i !== 3) {
+                        panelCollapse.forEach((item) => {
+                            item.classList.remove('in');                                
+                        });
+                        panelCollapse[i+1].classList.add('in');
+                    }
+                    
                 });    
             }
 };

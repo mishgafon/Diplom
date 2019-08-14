@@ -21,7 +21,7 @@
     <title>Септик-погреб</title>
 
 
-<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/E274D85D-6B71-584A-BB94-1F61BF0CE495/main.js" charset="UTF-8"></script></head>
+</head>
 
 <body>
 
@@ -107,7 +107,7 @@
             </div>
             <div class="col-lg-4 col-lg-offset-1 col-md-4 col-md-offset-1 col-sm-12 wow fadeInRight"
                  data-wow-delay="0.2s">
-                <form class="capture-form text-center">
+                <form class="capture-form text-center" novalidate >
                     <label for="name_2">Как к вам обращаться</label>
                     <input type="text" id="name_2" name="user_name" placeholder="Ваше имя" required>
                     <label for="phone_2">Ваш телефон для получения скидки</label>
@@ -128,7 +128,7 @@
     <div class="container">
         <div class="row">
             <h2>Онлайн конструктор септика</h2>
-            <div class="col-lg-6 col-md-6 col-sm-6" id="construct">
+            <div class="col-lg-6 col-md-6 col-sm-6">
                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
                     <div class="panel panel-default panel-one wow fadeInLeft">
@@ -169,43 +169,45 @@
                                 </a>
                             </h4>
                         </div>
-                        <div id="collapseTwo" class="panel-collapse collapse d-none" role="tabpanel"
+                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel"
                              aria-labelledby="headingTwo">
                             <div class="panel-body">
 
                                 <div class="title-text">первый колодец (приемный)</div>
                                 <div class="select-box">
                                     <p><strong>Диаметр</strong></p>
-                                    <select class="form-control expand">
-                                        <option>1.4 метра</option>
-                                        <option>2 метра</option>
+                                    <select class="select-circle form-control expand">
+                                        <option value="1">1.4 метра</option>
+                                        <option value="0.2">2 метра</option>
                                     </select>
                                 </div>
                                 <div class="select-box">
                                     <p><strong>Количество колец</strong></p>
-                                    <select class="form-control expand">
-                                        <option>1 штука</option>
-                                        <option>2 штуки</option>
-                                        <option>3 штуки</option>
+                                    <select class="select-well-count form-control expand">
+                                        <option value="1">1 штука</option>
+                                        <option value="0.3">2 штуки</option>
+                                        <option value="0.5">3 штуки</option>
                                     </select>
                                 </div>
 
+                                <div class="second-item">
                                 <div class="title-text">второй колодец (дренажный)</div>
                                 <div class="select-box">
                                     <p><strong>Диаметр</strong></p>
-                                    <select class="form-control expand">
-                                        <option>1.4 метра</option>
-                                        <option>2 метра</option>
+                                    <select class="select-circle2 form-control form-control-2 expand">
+                                        <option value="1">1.4 метра</option>
+                                        <option value="0.2">2 метра</option>
                                     </select>
                                 </div>
                                 <div class="select-box">
                                     <p><strong>Количество колец</strong></p>
-                                    <select class="form-control expand">
-                                        <option>1 штука</option>
-                                        <option>2 штуки</option>
-                                        <option>3 штуки</option>
+                                    <select class="select-well-count2 form-control form-control-2 expand">
+                                        <option value="1">1 штука</option>
+                                        <option value="0.3">2 штуки</option>
+                                        <option value="0.5">3 штуки</option>
                                     </select>
                                 </div>
+                            </div>
                                 <a class="button construct-btn" data-toggle="collapse" data-parent="#accordion"
                                    href="#collapseThree"><span>Следующий шаг</span></a>
                             </div>
@@ -221,7 +223,7 @@
                                 </a>
                             </h4>
                         </div>
-                        <div id="collapseThree" class="panel-collapse collapse d-none" role="tabpanel"
+                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel"
                              aria-labelledby="headingThree">
                             <div class="panel-body">
                                 </p>
@@ -250,12 +252,12 @@
                                 </a>
                             </h4>
                         </div>
-                        <div id="collapseFour" class="panel-collapse collapse d-none" role="tabpanel"
+                        <div id="collapseFour" class="panel-collapse collapse" role="tabpanel"
                              aria-labelledby="headingFour">
                             <div class="panel-body">
                                 <p>Введите расстояние до дома</p>
-                                <input type="text" required>
-                                <button class="button construct-btn call-btn">Получить расчет и скидку</button>
+                                <input type="text" class="distance" id="distance_to_house">
+                                <button class="button construct-btn send-calc-form">Получить расчет и скидку</button>
                             </div>
                         </div>
                     </div>
@@ -387,7 +389,7 @@
                     </div>
                 </div>
             </div>
-            <div class="panel panel-default">
+            <div class="panel panel-default d-none">
                 <div class="panel-heading" role="tab" id="headingTwo-two">
                     <h4 class="panel-title">
                         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion-two"
@@ -405,7 +407,7 @@
                     </div>
                 </div>
             </div>
-            <div class="panel panel-default">
+            <div class="panel panel-default d-none">
                 <div class="panel-heading" role="tab" id="headingThree-two">
                     <h4 class="panel-title">
                         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion-two"
@@ -414,7 +416,7 @@
                         </a>
                     </h4>
                 </div>
-                <div id="collapseThree-two" class="panel-collapse collapse d-none" role="tabpanel"
+                <div id="collapseThree-two" class="panel-collapse collapse" role="tabpanel"
                      aria-labelledby="headingThree-two">
                     <div class="panel-body">
                         Да. Иногда зимний монтаж предпочтительней. Большегрузная техника по мороженому грунту не
@@ -480,12 +482,11 @@
 </header>
 
 
-<!-- Всплывающие окна -->
+
 <div class="popup-call popup">
     <div class="popup-dialog">
         <div class="popup-content">
-            <!-- <div class="popup-form"> -->
-            <form class="capture-form text-center">
+            <form class="capture-form text-center" novalidate >
                 <span class="circle"><button class="popup-close">&times;</button></span>
                 <label for="name_1">Как к вам обращаться</label>
                 <input type="text" id="name_1" name="user_name" placeholder="Ваше имя" required>
@@ -497,7 +498,6 @@
                     грунта, <br> расположения объектов на участке, уровня грунтовых <br> вод, типа фундамента дома и еще
                     7 параметров</p>
             </form>
-            <!-- </div> -->
         </div>
     </div>
 </div>
@@ -505,8 +505,7 @@
 <div class="popup-discount popup">
     <div class="popup-dialog">
         <div class="popup-content" id="discount-popup">
-            <!-- <div class="popup-form"> -->
-            <form class="capture-form text-center">
+            <form class="capture-form text-center" novalidate >
                 <span class="circle"><button class="popup-close">&times;</button></span>
                 <label for="name_11">Как к вам обращаться</label>
                 <input type="text" id="name_11" name="user_name" placeholder="Ваше имя" required>
@@ -518,7 +517,37 @@
                     грунта, <br> расположения объектов на участке, уровня грунтовых <br> вод, типа фундамента дома и еще
                     7 параметров</p>
             </form>
-            <!-- </div> -->
+        </div>
+    </div>
+</div>
+
+
+<div class="popup-discount2 popup">
+    <div class="popup-dialog">
+        <div class="popup-content" id="discount-popup">
+            <form class="capture-form text-center" novalidate >
+                <span class="circle"><button class="popup-close">&times;</button></span>
+
+                <input type="hidden" id="type_septik" name="type_septik" value="">
+                <input type="hidden" id="first_well" name="first_well_diameter" value="">
+                <input type="hidden" id="first_well2" name="rings_amount" value="">
+                <input type="hidden" id="second_well" name="second_well_diameter" value="">
+                <input type="hidden" id="second_well2" name="rings_amount2" value="">
+                <input type="hidden" id="bottom_septik" name="bottom_septik" value="">
+                <input type="hidden" id="distance_septik" name="distance_to_home" value="">
+                <input type="hidden" id="price_septik" name="price_well" value="">
+
+                <label for="name_11">Как к вам обращаться</label>
+                <input type="text" id="name_11" name="user_name" placeholder="Ваше имя" required>
+
+                <label for="phone_11">Ваш телефон для получения скидки</label>
+                <input class="phone-user" type="text" id="phone_11" name="user_phone" placeholder="+7(___)___-__-__"required>
+
+                <button class="button capture-form-btn" name="submit" type="submit">Заказать со скидкой</button>
+                <p class="small">Вы получите расчет стоимости с учетом выбора <br>подходящего объема септика. типа
+                    грунта, <br> расположения объектов на участке, уровня грунтовых <br> вод, типа фундамента дома и еще
+                    7 параметров</p>
+            </form>
         </div>
     </div>
 </div>
@@ -526,20 +555,17 @@
 <div class="popup-check popup">
     <div class="popup-dialog">
         <div class="popup-content">
-            <!-- <div class="popup-form"> -->
-            <form class="capture-form text-center" id="check-form">
+            <form class="capture-form text-center" novalidate id="check-form">
                 <span class="circle"><button class="popup-close">&times;</button></span>
                 <label for="name_12">Как к вам обращаться</label>
                 <input type="text" id="name_12" name="user_name" placeholder="Ваше имя" required>
                 <label for="phone_12">Ваш телефон для получения скидки</label>
-                <input class="phone-user" type="text" id="phone_12" name="user_phone" placeholder="+7(___)___-__-__"
-                       required>
+                <input class="phone-user" type="text" id="phone_12" name="user_phone" placeholder="+7(___)___-__-__"required>
                 <button class="button capture-form-btn" name="submit" type="submit">Получить чек-лист и скидку</button>
                 <p class="small">Вы получите расчет стоимости с учетом выбора <br>подходящего объема септика. типа
                     грунта, <br> расположения объектов на участке, уровня грунтовых <br> вод, типа фундамента дома и еще
                     7 параметров</p>
             </form>
-            <!-- </div> -->
         </div>
     </div>
 </div>
@@ -547,8 +573,7 @@
 <div class="popup-consultation popup">
     <div class="popup-dialog">
         <div class="popup-content" id="popup-consult">
-            <!-- <div class="popup-form"> -->
-            <form class="capture-form text-center" id="consult-form">
+            <form class="capture-form text-center" novalidate id="consult-form">
                 <span class="circle"><button class="popup-close" id="consult-close">&times;</button></span>
                 <label for="name_13">Как к вам обращаться</label>
                 <input type="text" id="name_13" name="user_name" placeholder="Ваше имя" required>
@@ -560,17 +585,17 @@
                     грунта, <br> расположения объектов на участке, уровня грунтовых <br> вод, типа фундамента дома и еще
                     7 параметров</p>
             </form>
-            <!-- </div> -->
         </div>
     </div>
 </div>
 
-<!-- <script src="./Script/wow.min.js"></script>
- <script>
+<!--<script src="js/wow.min.js"></script>
+<script>
 new WOW().init();
 </script>-->
 
 <script src="./dist/main.js"></script>
+
 
 </body>
 </html>
