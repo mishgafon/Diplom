@@ -22,17 +22,14 @@ window.addEventListener('DOMContentLoaded', function(){
     const sendForm = () => {
         const errorMessage = 'Что-то пошло не так...',
             loadMessage = 'Загрузка...',
-             successMesage = 'Спасибо! Мы скоро с вами свяжемся!',
-             phoneUser = document.querySelector('.phone-user');
+             successMesage = 'Спасибо! Мы скоро с вами свяжемся!';
+
 
         const form = document.querySelectorAll('form');
         
          const statusMessage = document.createElement('div');
             statusMessage.style.cssText = 'font-size: 2rem;';
         
-             phoneUser.addEventListener('input', () => {
-                 phoneUser.value = phoneUser.value.replace(/\D/g, '');
-             });
 
         form.forEach((item) => {
 
@@ -95,7 +92,7 @@ const togglePopUp = () =>{
         
     body.addEventListener('click', (event) => {
         let target = event.target;
-
+        
 
 
         if (target.classList.contains('call-btn')){
@@ -122,13 +119,17 @@ const togglePopUp = () =>{
 
     const openPopup = (className) =>{
         let popup = document.querySelector(className);
+
         popup.style.display = 'block';
         document.body.style.overflow = 'hidden';
+
+
     };
 
    
     const closePopup = () =>{
         let popup = document.querySelectorAll('.popup');
+       
             popup.forEach((item) => {
                 item.style.display = 'none';                
         });
@@ -208,10 +209,18 @@ togglePopUp();
 
 
 
+//валидация
 
+        const check = () =>{
+            const phoneUser = document.querySelectorAll('.phone-user');
 
-
-
+            phoneUser.forEach((item) => {
+                item.addEventListener('input', () => {
+                    item.value = item.value.replace(/\D/g, '');
+                });
+            });
+        }
+        check();
 
 
 });
